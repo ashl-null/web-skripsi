@@ -3,62 +3,32 @@ let skor = 0;
 let hasilDetail = [];
 
 let soal = [
-    {
-        tanya: "Soal 1: Siapa nama panjang gwe",
-        type: "text",
-        jawab: ["muhammad annash ash shidiq"]
-    },
-    {
-        tanya: "Soal 2: Merek hp gwej",
-        type: "text",
-        jawab: ["poco f5"]
-    },
-    {
-        tanya: "Soal 3: Bapak jamal punya 5 anak, siapa terakhir?",
-        type: "text",
-        jawab: ["jamal"]
-    },
-    {
-        tanya: "Soal 4: Ponakan gwe ke 6",
-        type: "text",
-        jawab: ["shanum", "sanum"]
-    },
-    {
-        tanya: "Soal 5: Sepatu gwe",
-        type: "select",
-        pilihan: ["Nb 530","Nb 2002","Adidas adizero","Adidas evos sl"],
-        jawab: ["nb 2002"]
-    },
-    {
-        tanya: "Soal 6: Mbah sum dari mana",
-        type: "select",
-        pilihan: ["Sidoarjo","Pati Semarang","Salatiga","Keraton jogya","Klaten","Magelang"],
-        jawab: ["salatiga"]
-    },
-    {
-        tanya: "Soal 7: Merk motor gwe",
-        type: "text",
-        jawab: ["supra gtr","honda supra gtr","honda gtr"]
-    },
-    {
-        tanya: "Soal 8: Baju kemarin warna apa",
-        type: "text",
-        jawab: ["putih"]
-    },
-    {
-        tanya: "Soal 9: Angka favorit gwe",
-        type: "text",
-        jawab: ["21"]
-    }
+    { tanya: "Soal 1: Siapa nama panjang gwe", type: "text", jawab: ["muhammad annash ash shidiq"] },
+    { tanya: "Soal 2: Merek hp gwej", type: "text", jawab: ["poco f5"] },
+    { tanya: "Soal 3: Bapak jamal mempunyai 5 orang anak, namanya jokowa, jokowe, jokowu, jokowo, siapa nama anak terakhir", type: "text", jawab: ["jamal"] },
+    { tanya: "Soal 4: Ponakan gwe yang ke 6 (nama panggilan aja derr)", type: "text", jawab: ["shanum","sanum"] },
+    { tanya: "Soal 5: Sepatu guwe model nya apa", type: "select", pilihan: ["Nb 530","Nb 2002","Adidas adizero","Adidas evos sl"], jawab: ["nb 2002"] },
+    { tanya: "Soal 6: Mbah sum dari kota manee", type: "select", pilihan: ["Sidoardo","Pati Semarang","Salatiga","Keraton jogya","Klaten","Magelang"], jawab: ["salatiga"] },
+    { tanya: "Soal 7: Merk motor gwe", type: "text", jawab: ["supra gtr","honda supra gtr","honda gtr"] },
+    { tanya: "Soal 8: Gwe kemarin pake baju warna apa hahahaha", type: "text", jawab: ["putih"] },
+    { tanya: "Soal 9: Langsung pilih angka paporit gwe aja", type: "text", jawab: ["21"] }
 ];
 
 function tampilSoal() {
     let s = soal[index];
-    document.getElementById("soal").innerHTML = s.tanya;
 
-    if (s.type == "text") {
+    // animasi muncul
+    let soalDiv = document.getElementById("soal");
+    soalDiv.style.opacity = 0;
+
+    setTimeout(() => {
+        soalDiv.innerHTML = s.tanya;
+        soalDiv.style.opacity = 1;
+    }, 200);
+
+    if (s.type === "text") {
         document.getElementById("jawaban").innerHTML =
-            `<input type="text" id="input">`;
+            `<input type="text" id="input" placeholder="Ketik jawaban...">`;
     } else {
         let opsi = s.pilihan.map(p =>
             `<option value="${p.toLowerCase()}">${p}</option>`
@@ -70,10 +40,10 @@ function tampilSoal() {
 }
 
 function nextSoal() {
-    let input = document.getElementById("input").value.toLowerCase();
+    let input = document.getElementById("input").value.toLowerCase().trim();
 
-    if (input == "") {
-        alert("Isi dulu!");
+    if (input === "") {
+        alert("Jawab dulu ya 😊");
         return;
     }
 
@@ -96,12 +66,15 @@ function nextSoal() {
 }
 
 function tampilHasil() {
-    document.getElementById("soal").innerHTML = "🎉 Selesai!";
-    document.getElementById("jawaban").innerHTML = "";
+    document.querySelector(".chat-box").style.display = "none";
 
-    document.getElementById("hasil").innerHTML =
-        `Skor kamu: ${skor} / ${soal.length} <br><br>` +
-        hasilDetail.join("<br>");
+    let hasilText = `🎉 Selesai!<br>Skor: ${skor}/${soal.length}<br><br>` + hasilDetail.join("<br>");
+
+    if (skor === soal.length) {
+        hasilText += `<br><br>🎁 <a href="https://google.com" target="_blank">Klik Hadiah</a>`;
+    }
+
+    document.getElementById("hasil").innerHTML = hasilText;
 }
 
 tampilSoal();

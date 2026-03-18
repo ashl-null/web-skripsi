@@ -1,27 +1,60 @@
 body {
     font-family: Arial;
-    background: #f0f8ff;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
     text-align: center;
 }
 
 .container {
-    background: white;
-    padding: 20px;
-    margin: 50px auto;
     width: 90%;
     max-width: 400px;
-    border-radius: 10px;
+    margin: 30px auto;
 }
 
+h1 {
+    color: #333;
+}
+
+/* CHAT BOX */
+.chat-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    min-height: 200px;
+}
+
+/* BUBBLE SOAL */
+.bubble {
+    padding: 12px;
+    margin: 10px;
+    border-radius: 15px;
+    display: inline-block;
+    max-width: 80%;
+}
+
+.soal {
+    background: #ffcc70;
+    text-align: left;
+}
+
+/* INPUT */
 input, select {
     width: 90%;
     padding: 10px;
-    margin: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 
+/* BUTTON */
 button {
+    margin-top: 15px;
     padding: 10px 20px;
-    background: blue;
+    background: #4CAF50;
     color: white;
     border: none;
+    border-radius: 10px;
+}
+
+/* HASIL */
+h2 {
+    margin-top: 20px;
 }
