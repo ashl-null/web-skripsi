@@ -2,61 +2,18 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Kuis Anak</title>
+    <title>Kuis Rahasia 😎</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <h1>🎓 Kuis Anak Hebat</h1>
+    <h1>🎯 Kuis Tebak Gwe</h1>
 
-    <form id="quizForm">
+    <div id="soal"></div>
+    <div id="jawaban"></div>
 
-        <!-- Pilihan Ganda -->
-        <p>1. 2 + 2 = ?</p>
-        <select id="q1">
-            <option value="">Pilih</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-
-        <p>2. Warna langit?</p>
-        <select id="q2">
-            <option value="">Pilih</option>
-            <option value="biru">Biru</option>
-            <option value="merah">Merah</option>
-        </select>
-
-        <!-- Essai -->
-        <p>3. Hewan berkaki 4?</p>
-        <input type="text" id="q3">
-
-        <p>4. Ibukota Indonesia?</p>
-        <input type="text" id="q4">
-
-        <!-- Tambahan soal -->
-        <p>5. 5 + 5 = ?</p>
-        <input type="number" id="q5">
-
-        <p>6. Matahari terbit dari?</p>
-        <input type="text" id="q6">
-
-        <p>7. 3 x 3 = ?</p>
-        <input type="number" id="q7">
-
-        <p>8. Warna daun?</p>
-        <input type="text" id="q8">
-
-        <p>9. Air rasanya?</p>
-        <input type="text" id="q9">
-
-        <p>10. Huruf pertama alfabet?</p>
-        <input type="text" id="q10">
-
-        <br><br>
-        <button type="button" onclick="cekJawaban()">Kirim Jawaban</button>
-    </form>
+    <button onclick="nextSoal()">Next</button>
 
     <h2 id="hasil"></h2>
 </div>
