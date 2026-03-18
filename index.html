@@ -2,24 +2,65 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Sistem Rekomendasi Smartphone</title>
+    <title>Kuis Anak</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>📱 Rekomendasi Smartphone</h1>
-        <p>Untuk Driver Ojek Online</p>
+<div class="container">
+    <h1>🎓 Kuis Anak Hebat</h1>
 
-        <input type="number" id="harga" placeholder="Masukkan Budget (Rp)">
-        <input type="number" id="ram" placeholder="RAM (GB)">
-        <input type="number" id="baterai" placeholder="Baterai (mAh)">
+    <form id="quizForm">
 
-        <button onclick="hitung()">Cari Rekomendasi</button>
+        <!-- Pilihan Ganda -->
+        <p>1. 2 + 2 = ?</p>
+        <select id="q1">
+            <option value="">Pilih</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
 
-        <h2 id="hasil"></h2>
-    </div>
+        <p>2. Warna langit?</p>
+        <select id="q2">
+            <option value="">Pilih</option>
+            <option value="biru">Biru</option>
+            <option value="merah">Merah</option>
+        </select>
 
-    <script src="script.js"></script>
+        <!-- Essai -->
+        <p>3. Hewan berkaki 4?</p>
+        <input type="text" id="q3">
+
+        <p>4. Ibukota Indonesia?</p>
+        <input type="text" id="q4">
+
+        <!-- Tambahan soal -->
+        <p>5. 5 + 5 = ?</p>
+        <input type="number" id="q5">
+
+        <p>6. Matahari terbit dari?</p>
+        <input type="text" id="q6">
+
+        <p>7. 3 x 3 = ?</p>
+        <input type="number" id="q7">
+
+        <p>8. Warna daun?</p>
+        <input type="text" id="q8">
+
+        <p>9. Air rasanya?</p>
+        <input type="text" id="q9">
+
+        <p>10. Huruf pertama alfabet?</p>
+        <input type="text" id="q10">
+
+        <br><br>
+        <button type="button" onclick="cekJawaban()">Kirim Jawaban</button>
+    </form>
+
+    <h2 id="hasil"></h2>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
